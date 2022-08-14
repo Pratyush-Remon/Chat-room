@@ -12,7 +12,7 @@ def build_socket():
         global s
 
         host = ""
-        port = 9999
+        port = 7895
 
         s= socket.socket()
 

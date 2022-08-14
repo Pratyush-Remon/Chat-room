@@ -6,7 +6,7 @@ from sys import stdout
 
 s=socket.socket()
 host='192.168.29.237'
-port= 9999
+port= 7895
 
 s.connect((host,port))
 
